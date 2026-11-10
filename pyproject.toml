@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "personal-kb-cli"
+version = "0.1.0"
+description = "Markdown personal knowledge base validation and indexing CLI"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "yunfei00"}]
+dependencies = ["PyYAML>=6.0,<7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+kb = "kb.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kb"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
